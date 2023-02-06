@@ -10,6 +10,5 @@ To add support for new networks the same key used for the existing networks shou
 
 To generate the deployment data for a new network the following steps are necessary:
 
-- Set `MNEMONIC` in the `.env` file
+- Set `MNEMONIC` or `PRIVATE_KEY` in the `.env` file
 - Run `yarn compile <chain_id>`
-

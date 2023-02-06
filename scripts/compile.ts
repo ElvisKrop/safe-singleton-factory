@@ -32,8 +32,14 @@ async function writeFactoryDeployerTransaction(contract: CompilerOutputContract,
 	const value = 0
 	const data = arrayFromHexString(deploymentBytecode)
 
-	if (!process.env.MNEMONIC) throw Error("MNEMONIC is required")
-	const signer = ethers.Wallet.fromMnemonic(process.env.MNEMONIC!!)
+  let signer: ethers.Wallet
+	if (process.env.MNEMONIC !== '' && process.env.MNEMONIC !== undefined) {
+    signer = ethers.Wallet.fromMnemonic(process.env.MNEMONIC)
+  } else if (process.env.PRIVATE_KEY !== '' && process.env.PRIVATE_KEY !== undefined) {
+    signer = new ethers.Wallet(process.env.PRIVATE_KEY)
+  } else {
+    throw new Error('You need a MNEMONIC or PRIVATE_KEY to proceed...')
+  }
 	const signedEncodedTransaction = await signer.signTransaction({
 		nonce, gasPrice, gasLimit, value, data, chainId
 	})
