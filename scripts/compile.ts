@@ -1,10 +1,10 @@
-import { promises as filesystem } from 'fs'
+import {promises as filesystem} from 'fs'
 import * as path from 'path'
-import { CompilerOutput, CompilerInput, compileStandardWrapper, CompilerOutputContract } from 'solc'
-import { ethers } from 'ethers'
-import dotenv from "dotenv";
-import yargs from 'yargs/yargs';
-import { compileContracts } from './utils';
+import {CompilerOutputContract} from 'solc'
+import {ethers} from 'ethers'
+import * as dotenv from 'dotenv'
+import yargs from 'yargs'
+import {compileContracts} from './utils'
 
 dotenv.config()
 

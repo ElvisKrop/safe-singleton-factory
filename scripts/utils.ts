@@ -1,6 +1,6 @@
-import { promises as filesystem } from 'fs'
+import {promises as filesystem} from 'fs'
 import * as path from 'path'
-import { CompilerOutput, CompilerInput, compileStandardWrapper } from 'solc'
+import {CompilerInput, CompilerOutput, compileStandardWrapper} from 'solc'
 
 export async function compileContracts(): Promise<CompilerOutput> {
 	const solidityFilePath = path.join(__dirname, '..', 'source', 'deterministic-deployment-proxy.yul')
